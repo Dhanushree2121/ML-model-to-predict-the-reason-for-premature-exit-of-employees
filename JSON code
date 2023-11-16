@@ -1,0 +1,67 @@
+{
+    "schema_version": "1.0",
+    "name": "tabular-actgan",
+    "models": [
+        {
+            "actgan": {
+                "privacy_filters": {
+                    "outliers": null,
+                    "similarity": null,
+                    "max_iterations": 10
+                },
+                "data_source": [
+                    "gretel_fcaa6be87e8441c5bcc7617527258847_HR_comma_sep[1].csv"
+                ],
+                "ref_data": {},
+                "params": {
+                    "embedding_dim": 128,
+                    "generator_dim": [
+                        1024,
+                        1024
+                    ],
+                    "discriminator_dim": [
+                        1024,
+                        1024
+                    ],
+                    "generator_lr": 0.0001,
+                    "generator_decay": 1e-06,
+                    "discriminator_lr": 0.00033,
+                    "discriminator_decay": 1e-06,
+                    "batch_size": 600,
+                    "discriminator_steps": 1,
+                    "binary_encoder_cutoff": 150,
+                    "binary_encoder_nan_handler": "mode",
+                    "auto_transform_datetimes": false,
+                    "log_frequency": true,
+                    "cbn_sample_size": 250000,
+                    "epochs": 600,
+                    "pac": 10,
+                    "data_upsample_limit": 100,
+                    "conditional_vector_type": "single_discrete",
+                    "conditional_select_column_prob": null,
+                    "conditional_select_mean_columns": null,
+                    "reconstruction_loss_coef": 1.0,
+                    "force_conditioning": false
+                },
+                "generate": {
+                    "num_records": 5000,
+                    "max_invalid": null
+                },
+                "evaluate": {
+                    "correlation_columns": 75,
+                    "sqs_report_columns": 250,
+                    "sqs_report_rows": 5000,
+                    "mandatory_columns": null,
+                    "target": null,
+                    "holdout": null,
+                    "metric": null,
+                    "models": null,
+                    "skip": false,
+                    "task": null
+                }
+            }
+        }
+    ],
+    "notifications": null,
+    "label_predictors": null
+}
